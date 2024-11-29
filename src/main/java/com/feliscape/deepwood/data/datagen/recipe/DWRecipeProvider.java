@@ -1,9 +1,12 @@
 package com.feliscape.deepwood.data.datagen.recipe;
 
+import com.feliscape.deepwood.content.crafting.ArcSmeltingRecipe;
+import com.feliscape.deepwood.data.datagen.builder.ArcSmeltingRecipeBuilder;
 import com.feliscape.deepwood.registry.DeepwoodBlocks;
 import com.feliscape.deepwood.registry.DeepwoodItems;
 import com.google.common.collect.ImmutableList;
 import net.minecraft.core.HolderLookup;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
 import net.minecraft.data.recipes.packs.VanillaRecipeProvider;
@@ -25,6 +28,8 @@ public class DWRecipeProvider extends RecipeProvider implements IConditionBuilde
 
     @Override
     protected void buildRecipes() {
+        DWArcSmeltingRecipes.register(registries, output);
+
         this.nineBlockStorageRecipesRecipesWithCustomUnpacking(
                 RecipeCategory.MISC, DeepwoodItems.AMBOSS_INGOT, RecipeCategory.BUILDING_BLOCKS, DeepwoodBlocks.AMBOSS_BLOCK, "amboss_ingot_from_amboss_block", "amboss_ingot"
         );

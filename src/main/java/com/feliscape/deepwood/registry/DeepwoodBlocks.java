@@ -1,10 +1,9 @@
 package com.feliscape.deepwood.registry;
 
 import com.feliscape.deepwood.Deepwood;
+import com.feliscape.deepwood.content.block.ArcfurnaceBlock;
 import com.feliscape.deepwood.content.block.SpiritGrassBlock;
-import com.mojang.datafixers.kinds.Const;
 import net.minecraft.util.valueproviders.ConstantInt;
-import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.DyeColor;
 import net.minecraft.world.item.Item;
@@ -38,6 +37,11 @@ public class DeepwoodBlocks {
     public static final DeferredBlock<Block> WRAITH_AMBOSS_BLOCK = registerBlock("wraith_amboss_block",
             b -> new DropExperienceBlock(ConstantInt.of(0), b.mapColor(DyeColor.GRAY).instrument(NoteBlockInstrument.COW_BELL)
                     .requiresCorrectToolForDrops().strength(8.0F, 1200.0F).sound(SoundType.METAL)));
+    public static final DeferredBlock<Block> ARC_FURNACE = registerBlock("arc_furnace",
+            b -> new ArcfurnaceBlock(b.mapColor(MapColor.TERRACOTTA_BLUE)
+                    .instrument(NoteBlockInstrument.BASEDRUM)
+                    .requiresCorrectToolForDrops()
+                    .strength(2F, 6.0F)));
 
     // SPIRISTONE PALETTE
 

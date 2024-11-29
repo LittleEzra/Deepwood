@@ -2,6 +2,7 @@ package com.feliscape.deepwood.data.datagen.model;
 
 import com.feliscape.deepwood.Config;
 import com.feliscape.deepwood.Deepwood;
+import com.feliscape.deepwood.content.block.ArcfurnaceBlock;
 import com.feliscape.deepwood.registry.DeepwoodBlocks;
 import com.feliscape.deepwood.registry.DeepwoodItems;
 import net.minecraft.core.Direction;
@@ -65,6 +66,8 @@ public class DWBlockStateProvider extends BlockStateProvider {
         stairsBlock(DeepwoodBlocks.SPIRISTONE_BRICK_STAIRS, DeepwoodBlocks.SPIRISTONE_BRICKS);
         slabBlock(DeepwoodBlocks.SPIRISTONE_BRICK_SLAB, DeepwoodBlocks.SPIRISTONE_BRICKS);
         wallBlockWithItem(DeepwoodBlocks.SPIRISTONE_BRICK_WALL, DeepwoodBlocks.SPIRISTONE_BRICKS);
+
+        makeArcFurnace(DeepwoodBlocks.ARC_FURNACE, state -> state.getValue(ArcfurnaceBlock.LIT));
     }
 
     private void makeFurnaceLikeBlock(DeferredBlock<? extends Block> block, Function<BlockState, Boolean> onOffFunc) {
@@ -80,6 +83,25 @@ public class DWBlockStateProvider extends BlockStateProvider {
                 extend(baseTexture, "_front_on"),
                 extend(baseTexture, "_bottom"),
                 extend(baseTexture, "_top")
+        );
+        simpleBlockItem(block.get(), off);
+
+        horizontalBlock(block.get(), state -> onOffFunc.apply(state) ? on : off);
+    }
+
+    private void makeArcFurnace(DeferredBlock<? extends Block> block, Function<BlockState, Boolean> onOffFunc) {
+        ResourceLocation baseTexture = blockTexture(block.get());
+        ModelFile off = models().orientableWithBottom(name(block.get()),
+                extend(baseTexture, "_side"),
+                extend(baseTexture, "_front"),
+                extend(baseTexture, "_bottom"),
+                extend(baseTexture, "_top")
+        );
+        ModelFile on = models().orientableWithBottom(name(block.get()) + "_on",
+                extend(baseTexture, "_side"),
+                extend(baseTexture, "_front_on"),
+                extend(baseTexture, "_bottom"),
+                extend(baseTexture, "_top_on")
         );
         simpleBlockItem(block.get(), off);
 

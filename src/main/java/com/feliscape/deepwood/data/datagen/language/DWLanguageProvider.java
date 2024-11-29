@@ -33,6 +33,7 @@ public class DWLanguageProvider extends LanguageProvider {
         this.addBlockAndItem(DeepwoodBlocks.AMBOSS_BLOCK, "Block of Amboss");
         this.addBlockAndItem(DeepwoodBlocks.RAW_AMBOSS_BLOCK, "Block of Raw Amboss");
         this.addBlockAndItem(DeepwoodBlocks.WRAITH_AMBOSS_BLOCK, "Wraith Amboss Block");
+        this.addBlockAndItem(DeepwoodBlocks.ARC_FURNACE, "Arc Furnace");
 
         this.addBlockAndItem(DeepwoodBlocks.SPIRISTONE, "Spiristone");
         this.addBlockAndItem(DeepwoodBlocks.SPIRISTONE_STAIRS, "Spiristone Stairs");

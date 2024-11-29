@@ -3,6 +3,8 @@ package com.feliscape.deepwood.client;
 import com.feliscape.deepwood.Deepwood;
 import com.feliscape.deepwood.client.data.ClientSpecterscopeData;
 import com.feliscape.deepwood.client.hud.SpecterscopeGuiLayer;
+import com.feliscape.deepwood.content.screen.ArcFurnaceScreen;
+import com.feliscape.deepwood.registry.DeepwoodMenuTypes;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
@@ -37,7 +39,7 @@ public class ClientEvents {
         @SubscribeEvent
         public static void onRegisterMenuScreens(RegisterMenuScreensEvent event)
         {
-
+            event.register(DeepwoodMenuTypes.ARC_FURNACE_MENU.get(), ArcFurnaceScreen::new);
         }
 
         @SubscribeEvent
